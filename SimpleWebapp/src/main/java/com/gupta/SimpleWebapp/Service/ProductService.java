@@ -16,4 +16,14 @@ public class ProductService {
         return products;
     }
 
+    public Product getProductById(int prodId) {
+        return products.stream()
+                .filter(p -> p.getProdId() == prodId)
+                .findFirst().orElse(new Product(000,"No Item Found",0));
+    }
+
+    public void addProduct(Product prod){
+        products.add(prod);
+    }
+
 }
